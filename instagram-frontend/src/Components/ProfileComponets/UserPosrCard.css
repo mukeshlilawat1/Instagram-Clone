@@ -1,0 +1,42 @@
+/* wrapper already relative via Tailwind */
+.post-wrapper {
+  position: relative;
+}
+
+/* FORCE image visibility */
+.post-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* overlay ABOVE image but hidden */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  pointer-events: none; /* 🔥 image ko block nahi karega */
+  transition: opacity 0.25s ease;
+  z-index: 2;
+}
+
+/* hover works */
+.post-wrapper:hover .overlay {
+  opacity: 1;
+}
+
+.overlay-text {
+  display: flex;
+  gap: 24px;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+}
